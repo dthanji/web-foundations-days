@@ -47,6 +47,7 @@ Original photos and thumbnails are large binary files. Storing them directly in 
 
 ## 5. Architecture diagram
 
+```text
                          +----------------------+
                          |     Mobile / Web     |
                          |       Clients        |
@@ -106,6 +107,7 @@ Original photos and thumbnails are large binary files. Storing them directly in 
                        App Servers
 
  CDN fetches image objects from object storage on a cache miss.
+```
 
 ## 6. What each component does
 
