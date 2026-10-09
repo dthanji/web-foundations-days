@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Load and filter a list of users from a public REST API.">
+  <title>Day 5 — User Directory</title>
+  <script src="users.js" defer></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f3f6f8; color: #20303b; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.5; }
+    header { padding: 2.5rem 1.25rem; background: #194f60; color: white; }
+    header > div, main { width: min(760px, calc(100% - 2rem)); margin: 0 auto; }
+    header p { margin: .4rem 0 0; color: #d6e8ed; }
+    h1 { margin: 0; font-size: clamp(2rem, 6vw, 3rem); }
+    main { padding: 1.5rem 0 3rem; }
+    .controls, .user-card { padding: 1.25rem; border: 1px solid #dce5e9; border-radius: 14px; background: white; box-shadow: 0 5px 18px #173e4d0b; }
+    .controls { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: end; }
+    label { display: block; margin-bottom: .4rem; font-size: .9rem; font-weight: 700; }
+    input { width: 100%; min-height: 44px; padding: .65rem .75rem; border: 1px solid #bacbd2; border-radius: 8px; font: inherit; }
+    input:focus { outline: 3px solid #b7e2e9; border-color: #24798c; }
+    button { min-height: 44px; padding: .65rem 1rem; border: 0; border-radius: 8px; background: #14798a; color: white; cursor: pointer; font: inherit; font-weight: 700; }
+    button:hover:not(:disabled) { background: #105f6c; }
+    button:disabled { cursor: wait; opacity: .65; }
+    #status { min-height: 1.5rem; margin: 1rem 0; color: #4e606a; }
+    #status.error { color: #b42336; }
+    #users-list { display: grid; gap: .85rem; margin: 0; padding: 0; list-style: none; }
+    .user-card h2 { margin: 0 0 .45rem; font-size: 1.15rem; }
+    .user-card p { margin: .25rem 0; overflow-wrap: anywhere; }
+    .user-card strong { color: #415762; }
+    @media (max-width: 600px) { .controls { grid-template-columns: 1fr; } button { width: 100%; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>User Directory</h1>
+      <p>Day 5 practice: fetch, display and filter data from a REST API.</p>
+    </div>
+  </header>
+  <main>
+    <section class="controls" aria-label="User controls">
+      <button id="load-users" type="button">Load users</button>
+      <div>
+        <label for="filter-input">Filter by name</label>
+        <input id="filter-input" type="search" placeholder="Start typing a name..." autocomplete="off">
+      </div>
+    </section>
+    <p id="status" role="status" aria-live="polite">Select “Load users” to fetch the directory.</p>
+    <ul id="users-list" aria-label="Users"></ul>
+  </main>
+</body>
+</html>
